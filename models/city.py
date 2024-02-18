@@ -24,4 +24,4 @@ class City(BaseModel, Base):
 
         def cities(self):
             """Gets all cities from storage"""
-            return storage.all(self.__class__)
+            return storage.all("City")
