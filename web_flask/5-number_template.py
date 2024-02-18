@@ -4,6 +4,7 @@ from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def index():
     """The landing page that returns “Hello HBNB!”"""
@@ -24,7 +25,7 @@ def ctext(text):
 
 @app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
-def ptext (text="is cool"):
+def ptext(text="is cool"):
     """Returns Python followed by text variable"""
     return "Python {}".format(text)
 
@@ -39,6 +40,7 @@ def number(n):
 def template(n):
     """renders template if n is a number"""
     return render_template('5-number.html', n=n)
+
 
 if __name__ == "__main__":
     app.run()
