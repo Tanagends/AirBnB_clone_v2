@@ -15,7 +15,8 @@ def teardown_appcontext(exception):
 @app.route('/states_list', strict_slashes=False)
 def states_lis():
     """renders a states list template"""
-    res = storage.all("State")
+    ress = storage.all("State")
+    res = sorted(ress.values(), key=lambda state: state.name)
     return render_template('7-states_list.html', res=res)
 
 
