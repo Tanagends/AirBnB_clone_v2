@@ -3,6 +3,7 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
+from models.engine import storage
 from os import getenv
 
 
@@ -20,3 +21,7 @@ class City(BaseModel, Base):
     else:
         name = ""
         state_id = ""
+
+        def cities(self):
+            """Gets all cities from storage"""
+            storage.all(self.__class__.__name__)
